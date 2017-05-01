@@ -1,0 +1,78 @@
+*** TITLE: *****************************************************************************
+Scrips for reordering of English sentences according to the German, Japanese and
+Chinese syntax.
+****************************************************************************************
+
+*** SUMMARY: ***************************************************************************
+The reordering script performs reordering of the parsed English input text according 
+to the rules for one of the following target languages: Chinese, German and Japanese.
+The English input is first parsed with the a lexical parser. Default is the BLLIP 
+parser, which is also provided with the code for ease of usability. Subsequently, a 
+set of target-language specific rules is applied on the parser output to reorder the 
+English words. The reordering is based on a slightly modified version of the Stanford 
+Tsurgeon tool. Finally, the reordered sentences are extracted from the reordered parse
+trees.
+
+We provide an example English file "en.txt" to test the reordering script. It is stored 
+in the directory "data/".
+
+The reordering script has two input required parameters:
+1) The input text file (UTF8)
+2) The target language.
+and two other optional:
+3) The parser (default is BLLIP)
+4) The name of the output file (default is reordered.txt)
+
+Another option is the reordering rules for Chinese:
+export ZH_RULES=NPPP
+will invoke the NPPP rules; otherwise the OFPP rules will be used.
+
+The script creates a subdirectory "parsing/" in which the intermediate files (original 
+and reordered parses) are stored. The final reordered output is written by default into 
+a file "reordered.txt".
+
+To run:
+sh reorder.sh data/en.txt de 
+(this will invoke the script for the file 'data/en.txt' with the default (first) parser 
+- BLLIP - provided with the code. The output will be saved in 'reordered.txt')
+or:
+sh reorder.sh data/en.txt de 1 reordered_file_de.en
+(this will invoke the script for the file 'data/en.txt' with the default (first) parser 
+- BLLIP - provided with the code. The output will be saved in 'reordered_file_de.en')
+or:
+sh reorder.sh data/en.txt de 2
+(this will invoke the script for the file 'data/en.txt' with the second option for 
+parser - Stanford Parser - NOT provided with the code. The output will be saved in 
+'reordered.txt')
+or:
+sh reorder.sh data/en.txt de 3 reordered_file_de.en
+(this will invoke the script for the file 'data/en.txt' with the third option for 
+parser - Stanford CoreNLP - NOT provided with the code. The output will be saved in 
+'reordered_file_de.en')
+
+NOTE!!!
+In order to run the Stanford CoreNLP or the Stanford Parser or the Stanford CoreNLP
+they need to be downloaded and set-up separately.
+****************************************************************************************
+
+*** CHANGE LOG: ************************************************************************
+Creation date: 27/02/2016
+Authors: Anita Ramm, Riccardo Superbo, Dimitar Shterionov
+
+Version: 1.0
+Version date: 01/05/2017
+Version summary: Cleaning and preparing the code for deployment
+Blame: Dimitar Shterionov
+*****************************************************************************************
+
+*** Reference: **************************************************************************
+Integration of a Multilingual Preordering Component Into a Commercial SMT Platform, 
+Anita Ramm, Riccardo Superbo, Dimitar Shterionov, 
+in proceedings of EAMT2017.
+*****************************************************************************************
+
+*** Contacts: ***************************************************************************
+Anita: ramm@ims.uni-stuttgart.de
+Riccardo: riccardos@kantanmt.com
+Dimitar: dimitars@kantanmt.com
+*****************************************************************************************

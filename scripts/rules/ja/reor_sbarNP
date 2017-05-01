@@ -1,0 +1,3 @@
+NP=np_child > NP $+ SBAR=sbar_child
+
+move np_child $- sbar_child

@@ -1,0 +1,3 @@
+VP <- __=last <1 (/VB.*|MD/=verb !>- VP) > (S > SBAR)
+
+move verb $- last

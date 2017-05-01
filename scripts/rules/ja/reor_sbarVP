@@ -1,0 +1,4 @@
+/SBARQ?/=sbar_child > (VP=vp_parent > VP)
+
+move sbar_child $- vp_parent
+

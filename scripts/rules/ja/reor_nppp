@@ -1,0 +1,3 @@
+NP < (NP=np_child $+ PP=pp_child) % '$+' PP follows NP
+
+move np_child $- pp_child % np becomes right siser of pp

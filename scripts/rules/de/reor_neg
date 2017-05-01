@@ -1,0 +1,3 @@
+VP < (RB=neg_child < /n.t/) [ < (VP <- /VB.*|MD/=first_infV) | < !VP < (/VB.*/=first_infV $- neg_child) ]
+
+move neg_child $+ first_infV

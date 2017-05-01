@@ -1,0 +1,3 @@
+SBAR < ( IN=in_child  $+ S=s_sister)
+
+move in_child $- s_sister

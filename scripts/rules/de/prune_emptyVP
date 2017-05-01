@@ -1,0 +1,4 @@
+VP=vp !< /.*/ > /VP|SQ/
+
+prune vp
+

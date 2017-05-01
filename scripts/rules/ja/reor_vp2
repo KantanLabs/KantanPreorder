@@ -1,0 +1,3 @@
+VP < (MD=md_child $+ /VP/=vp_child)
+
+move md_child $- vp_child

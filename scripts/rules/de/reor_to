@@ -1,0 +1,3 @@
+VP <1 /TO/=to_child <- ( VP=last < /VB/=verb_child)
+
+move to_child $+ verb_child

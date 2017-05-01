@@ -1,0 +1,3 @@
+/SBAR.+/ < ( WHADVP=wh_child $+ /S.+/=s_sister)
+
+move wh_child $- s_sister

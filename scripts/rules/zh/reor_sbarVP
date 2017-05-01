@@ -1,0 +1,3 @@
+VP=vp_top <+ (VP) /^S.?/=s_child > S !< CC
+
+move s_child $- vp_top

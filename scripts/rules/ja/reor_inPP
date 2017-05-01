@@ -1,0 +1,3 @@
+PP < ( IN=in_child ( $+ NP=sister | $+ S=sister) )
+
+move in_child $- sister

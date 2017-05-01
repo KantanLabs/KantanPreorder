@@ -1,0 +1,3 @@
+/VP|SQ/ [ <1 (/VBZ|VBP/=fin < /am|are|is/) < (VP < VBG=gerund) | <1 (/VBZ|VBP/=fin < /do|does/) < (VP < VB=gerund) ]
+
+move gerund $- fin

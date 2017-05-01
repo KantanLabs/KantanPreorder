@@ -1,0 +1,3 @@
+VP <1 /TO/=to_child   <- ( VP=last [ < NP | < PP | < ADVP ] )
+
+move to_child $- last

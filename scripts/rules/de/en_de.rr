@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<reordering_rules>
+	<rule>
+		<name>reor_sbarVP</name>
+		<pattern>VP=vp_top &lt;+ (VP) /^S.?/=s_child > /S.?/ !$ CC</pattern>
+		<modifier>move s_child $- vp_top</modifier>
+		<comment>Move subordinate clauses within VPs outside of VP nodes.</comment>
+	</rule>
+	<rule>
+		<name>reor_mainV</name>
+		<pattern>VP &lt;- __=last &lt;1 (/VB.*/=verb !&gt;- VP) > (/VP|SQ/ [ &lt; /VB.+|MD/ | &lt; TO | &lt; (VB &lt; /be/) ])</pattern>
+		<modifier>move verb $- last</modifier>
+		<comment>Move main verb(s) to the end of the corresponding VP.</comment>
+	</rule>
+	<rule>
+		<name>reor_finVsbar</name>
+		<pattern>VP &lt;- __=last &lt;1 (/VB.*|MD/=verb !&gt;- VP) &gt; (S &gt; SBAR)</pattern>
+		<modifier>move verb $- last</modifier>
+		<comment>Move finite verb at the end of the corresponding VP.</comment>
+	</rule>
+	<rule>
+		<name>reor_finVextr</name>
+		<pattern>/S.?/ &lt;1 !NP &lt; (NP=np_subj $+ (VP &lt;1 /VB.*|MD/=verb)) &gt; ROOT</pattern>
+		<modifier>move verb $+ np_subj</modifier>
+		<comment>Move finite verb in friont of the subject NP in clauses with extraposition.</comment>
+	</rule>
+	<rule>
+		<name>reor_presCnt</name>
+		<pattern>/VP|SQ/ [ &lt;1 (/VBZ|VBP/=fin &lt; /am|are|is/) &lt; (VP &lt; VBG=gerund) | &lt;1 (/VBZ|VBP/=fin &lt; /do|does/) &lt; (VP &lt; VB=gerund) ]</pattern>
+		<modifier>move gerund $- fin</modifier>
+		<comment>Move gerund/infinitive next to the auxiliaries am/are/is (for present continuous) and do (for present negation).</comment>
+	</rule>	
+	<rule>
+		<name>reor_neg</name>
+		<pattern>VP &lt; (RB=neg_child &lt; /n.t/) [ &lt; (VP &lt;- /VB.*|MD/=first_infV) | &lt; !VP &lt; (/VB.*/=first_infV $- neg_child) ]</pattern>
+		<modifier>move neg_child $+ first_infV</modifier>
+		<comment>Move negation in front of the main verb complex.</comment>
+	</rule>	
+	<rule>
+		<name>reor_to</name>
+		<pattern>VP &lt;1 /TO/=to_child &lt;- ( VP=last &lt; /VB/=verb_child)</pattern>
+		<modifier>move to_child $+ verb_child</modifier>
+		<comment>Move the infinitive particle to in front of the corresponding infinitive.</comment>
+	</rule>
+	<rule>
+		<name>reor_prt</name>
+		<pattern>VP &lt;1 (PRT=prt_child &lt; RP) &lt;- /VB.*|MD/=last_v</pattern>
+		<modifier>move prt_child $- last_v</modifier>
+		<comment>Move the verbal particle at the end of the corresponding VP.</comment>
+	</rule>
+        <rule>
+                <name>prune_emptyVP</name>
+                <pattern>VP=vp !&lt; /.*/ &gt; /VP|SQ/</pattern>
+                <modifier>prune vp</modifier>
+		<comment>Remove empty VP nodes.</comment>
+        </rule>
+
+</reordering_rules>

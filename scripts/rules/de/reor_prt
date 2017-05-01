@@ -1,0 +1,3 @@
+VP <1 (PRT=prt_child < RP) <- /VB.*|MD/=last_v
+
+move prt_child $- last_v

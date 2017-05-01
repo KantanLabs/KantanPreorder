@@ -1,0 +1,4 @@
+%VP < ((RB=neg_child < /n.t/) $+ /VP/=vp_child)
+VP <1 (RB=neg_child < /n.t/) <- /VB.?|MD/=vb_sister
+
+move neg_child $- vb_sister

@@ -1,0 +1,5 @@
+%VP < (/VB.?/=vb_child $+ NP=sister | $+ VP=sister | $+ ADVP=sister)
+VP < /VB.?/=vb_child <- /^S.+/=last
+
+%move vb_child $- sister
+move vb_child $+ last

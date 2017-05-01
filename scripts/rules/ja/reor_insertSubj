@@ -1,0 +1,4 @@
+NP=np_top <+ (NP) (NP <- /.+/=last)
+
+relabel np_last RENAMEME
+%insert (SBJPRT sbj) $- np_last

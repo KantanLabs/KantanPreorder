@@ -1,0 +1,3 @@
+VP < (PRT=prt_child < RP) <- /VB.?|MD/=vb_sister
+
+move prt_child $- vb_sister

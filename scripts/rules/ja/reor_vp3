@@ -1,0 +1,3 @@
+VP < ((RB=neg_child < /n.t/) $+ /VP/=vp_child)
+
+move neg_child $- vp_child

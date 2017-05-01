@@ -1,0 +1,3 @@
+VP <1 /VB.?|MD/=vb_child ( <- NP=last | <- VP=last | <- ADVP=last | <- PP=last)
+
+move vb_child $- last
