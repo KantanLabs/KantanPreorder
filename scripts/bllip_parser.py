@@ -6,7 +6,14 @@ import sys
 import os
 
 import re
-from bllipparser import RerankingParser
+try:
+	from bllipparser import RerankingParser
+except:
+	sys.path.append(os.path.join([os.path.dirname(__file__), "/bllip-parser/python/bllipparser"]))
+	from bllipparser import RerankingParser
+
+#finally:
+#	sys.exit(1)
 
 if __name__ == "__main__":
     file = ""
