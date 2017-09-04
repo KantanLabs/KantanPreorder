@@ -57,6 +57,19 @@ LANG=$2 # Langugae for which EN trees are to be reordered
 WD=$PWD # Working directory
 PARSERPATH=$WD/scripts # Path to the parser
 
+if [[ -z $1 && -z $2 ]];
+then
+	echo "
+INFORMATION: 	 -------- Preordering Component for MT, based on parse-trees. --------
+		 This script applies tsurgeon/tregex-based reordering on parse-trees
+		 corresponding to a source-langauge sentence.
+TO RUN:		sh reorder.sh [INPUT] [LANG] [[PARSER]] [[OUTPUT]]
+		INPUT: 	the input file
+		LANG:	the language code (en, zh-cn, jp)
+		PARSER (optional):	1 - bllip (default); 2 - Stanford CoreNLP (SR); 3 - Stanford Parser (PCFG)
+		OUTPUT (optional):	the path to a file where the output will be saved (default reordered.txt)
+	"
+fi
 
 # Set the parser type
 PARSERTYPE="_bllip"
@@ -170,7 +183,7 @@ cat $WD/parsing/input*.reordered.txt > $OUTPUT_FILE_NAME
 
 echo "Cleaning ...
 "
-rm $WD/parsing -r
+# rm $WD/parsing -r
 
 echo "Done.
 "
